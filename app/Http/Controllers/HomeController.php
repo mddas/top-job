@@ -15,7 +15,12 @@ class HomeController extends Controller
                 ->where('nav_name', 'LIKE', "%news%") 
                 ->latest()
                 ->get();
-        return view("website.index")->with(['menus'=>$menus,'homenews'=>$homenews,'top_first_news'=>$top_first_news]);
+        $about_id = Navigation::query()->where('nav_category','Home')->where('nav_name', 'LIKE', "%about%")->where('page_type','Group')->latest()->first()->id;
+        $About = Navigation::all()->where('parent_page_id',$about_id)->last();
+        $banner_id = Navigation::query()->where('nav_category','Home')->where('nav_name', 'LIKE', "%banner%")->where('page_type','Group')->latest()->first()->id;
+        $banners = Navigation::all()->where('parent_page_id',$banner_id);
+       
+        return view("website.index")->with(['banners'=>$banners,'about'=>$About,'menus'=>$menus,'homenews'=>$homenews,'top_first_news'=>$top_first_news]);
     }
     public function category($slug){
         $menus = Navigation::all()->where('nav_category','Main')->where('parent_page_id',0);
