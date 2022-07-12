@@ -63,27 +63,11 @@
                 <div class="form-group col-md-6">
                     <label for="caption">Caption <i class="reqr">*</i> (Page/Navigation Title)</label>
                     <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="caption" name="caption" placeholder="Caption" value="{{old('caption')}}" required="required">
-                </div>
-                @if($category == 'SNS')
-                <div class="form-group col-md-6">
-                    <label for="caption_nepali">Icon (eg: fa fa-facebook / fab fa facebook)</label>
-                    <input class="form-control {{ $errors->has('caption_nepali') ? 'has-error' : '' }}" type="text" id="caption_nepali" name="caption_nepali" placeholder="Icon class" value="{{old('caption_nepali')}}">
-                </div>
-                @else
-                <div class="form-group col-md-6">
-                    <label for="caption_nepali">Nepali Caption <i class="reqr">*</i> (Page/Navigation Title)</label>
-                    <input class="form-control {{ $errors->has('caption_nepali') ? 'has-error' : '' }}" type="text" id="caption_nepali" name="caption_nepali" placeholder="Nepali Caption" value="{{old('caption_nepali')}}" required="required">
-                </div>
-                @endif                
+                </div>             
 
                 <div id="url_link_div" class="form-group col-md-10" style="display: none;">
                     <label for="link_url">URL Link <i class="reqr">*</i></label>
                     <input class="form-control {{ $errors->has('link') ? 'has-error' : '' }}" type="text" id="link_url" name="link" placeholder="URL Link" value="{{old('link')}}">
-                </div>
-
-                <div id="attachment_div" class="form-group col-md-10" style="display: none">
-                	<label for="attachment">Attachment</label>
-                	<input type="file" class="form-control" id="attachment" name="attachment">
                 </div>
 
                 <div class="clearfix"></div>
@@ -91,20 +75,13 @@
                 <div id="short_content_div" class="form-group col-md-12">
                     <label for="short_content">Short Content</label>
                     <textarea class="form-control ckeditor" id="short_content"  name="short_content" rows="5" placeholder="Short Content" >{{old('short_content')}}</textarea>
-                </div>
-                <div id="short_content_nepali_div" class="form-group col-md-12">
-                    <label for="short_content_nepali">Nepali Short Content</label>
-                    <textarea class="form-control ckeditor" id="short_content_nepali"  name="short_content_nepali" rows="5" placeholder="Short Content" >{{old('short_content_nepali')}}</textarea>
-                </div>            
+                </div>           
 
                 <div id="long_content_div" class="form-group col-md-12">
                     <label for="long_content">Main Content</label>
                     <textarea class="form-control ckeditor" id="long_content" name="long_content" rows="10" placeholder="Main Content">{{old('long_content')}}</textarea>
                 </div>
-                 <div id="long_content_nepali_div" class="form-group col-md-12">
-                    <label for="long_content_nepali">Nepali Main Content</label>
-                    <textarea class="form-control ckeditor" id="long_content_nepali" name="long_content_nepali" rows="10" placeholder="Main Content">{{old('long_content_nepali')}}</textarea>
-                </div>
+                
         
         </div>
 

@@ -11,6 +11,7 @@
 |
 */
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JobController;
 
 Auth::routes();
 
@@ -78,7 +79,8 @@ Route::prefix('admin')->group(function(){
     Route::get('/comment-status/{id}', 'Admin\CommentController@updatestatus');
 
 //................................customized my MD for Job.............
-    Route::get('/job/{category}/{id}/create','Admin\NavigationController@AddJob')->name("AddJob");
+    Route::get('/job/{category}/{id}/create','JobController@AddJob')->name("AddJob");
+    Route::get('/job/{category}/create','JobController@AddJob')->name("AddJob");
 
 });
 
