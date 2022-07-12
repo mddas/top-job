@@ -466,29 +466,7 @@
             filebrowserFlashUploadUrl : '{{asset("assets/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash")}}',
             
         });
-    </script> 
-    
-    <!-----if page_type is Job--------->
-    <script>
-        function pageType(){
-            @if($category_id==0)
-                window.location.href = "/admin/job/{{$main_home}}/create";
-            @elseif($category_id!=0)
-                window.location.href = "/admin/job/{{$main_home}}/{{$category_id}}/create";
-            @endif
-        }
-        if($("#page_type").val()=="Job"){
-          @if($category_id==0)
-                window.location.href = "/admin/job/{{$main_home}}/create";
-          @elseif($category_id!=0)
-                window.location.href = "/admin/job/{{$main_home}}/{{$category_id}}/create";
-          @endif  
-        }
-    </script>
-
-    <!--------------------------------->
-   
-   
+    </script>  
 
 
 @endsection

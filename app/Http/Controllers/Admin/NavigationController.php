@@ -18,20 +18,24 @@ class NavigationController extends Controller
     }
 
     public function create($category)
-    {
-        $request_segment = \Request::segment(4);
+    {         
+        $main_home = $category;//customized by md to redirect for job add page  
+        //return $main_home;       
+        $request_segment = \Request::segment(4);//customized by md to redirect for job add page
+        $category_id = \Request::segment(4);
         if(intval($request_segment) == 0){
             $request_segment = \Request::segment(3);
             $current_max_position = Navigation::where('nav_category',$request_segment)->max('position');
         }else{
+            $category_id = \Request::segment(4);
+            //return $category_id;
             $current_max_position = Navigation::where('parent_page_id',$request_segment)->max('position');
             $category .= '/'.$request_segment;
         }
-
+        $category_id = intval($category_id);
         $next_position = $current_max_position + 1;
         $categories = Navigation::where('page_type','group')->where('nav_category', $category)->get();
-
-        return view('admin.navigation.navigation_create',compact('category','next_position','categories'));
+        return view('admin.navigation.navigation_create',compact('category','next_position','categories','main_home','category_id'));
     }
 
     public function store(Request $request, $nav_category)
@@ -269,7 +273,6 @@ class NavigationController extends Controller
 
     }
 
-
     /*Photo gallery*/
 
     public function showMediaList($nav_category=null,$id){
@@ -368,6 +371,22 @@ class NavigationController extends Controller
     {
        $data['page_status'] = $request->page_status;
        Navigation::where('id', $id)->update($data);
+    }
+
+    public function AddJob($category){
+       $request_segment = \Request::segment(4);
+        if(intval($request_segment) == 0){
+            $request_segment = \Request::segment(3);
+            $current_max_position = Navigation::where('nav_category',$request_segment)->max('position');
+        }else{
+            $current_max_position = Navigation::where('parent_page_id',$request_segment)->max('position');
+            $category .= '/'.$request_segment;
+        }
+
+        $next_position = $current_max_position + 1;
+        $categories = Navigation::where('page_type','group')->where('nav_category', $category)->get();
+
+        return view('admin.job.job_create',compact('category','next_position','categories'));
     }
 
 

@@ -56,7 +56,7 @@ Route::prefix('admin')->group(function(){
     Route::get('/navigation-list/{category}/{id}/delete','Admin\NavigationController@destroy');
     Route::get('/navigation-list/{category}/{id}','Admin\NavigationController@childNavigation')->where(['id'=>'[0-9]+']);
     Route::get('/navigation-list/{category}/{id}/create','Admin\NavigationController@create')->where(['id'=>'[0-9]+']);
-
+    
 
     Route::get('/global-setting','Admin\GlobalSettingController@global_setting');
     //Route::post('/global-setting','Admin\GlobalSettingController@create')->name('create.global-setting');
@@ -76,6 +76,9 @@ Route::prefix('admin')->group(function(){
     Route::get('/{id}/comment_list','Admin\CommentController@index');
     Route::get('/{id}/comment-delete','Admin\CommentController@destroy');
     Route::get('/comment-status/{id}', 'Admin\CommentController@updatestatus');
+
+//................................customized my MD for Job.............
+    Route::get('/job/{category}/{id}/create','Admin\NavigationController@AddJob')->name("AddJob");
 
 });
 
