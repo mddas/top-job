@@ -6,107 +6,24 @@
     <!-- /.theme-title-one -->
     <div class="wrapper">
       <div class="row">
-        <div class="col-xl-4 col-lg-6 col-12">
-          <div class="single-service">
-            <div class="img-box">
-              <img src="/website/images/home/3.jpg" alt="" />
+        @foreach($menus as $menu)
+          <div class="col-xl-4 col-lg-6 col-12">
+            <div class="single-service">
+              <div class="img-box">
+                <img src="{{$menu->banner_image}}" alt="" />
+              </div>
+              <div class="text">
+                <h5><a href="{{route('category',$menu->nav_name)}}">{{$menu->caption}}</a></h5>
+                <p>{{$menu->short_content}}</p>
+                <a href="{{route('category',$menu->nav_name)}}" class="read-more"
+                  >View Job<i class="fa fa-angle-right" aria-hidden="true"></i
+                ></a>
+              </div>
+              <!-- /.text -->
             </div>
-            <div class="text">
-              <h5><a href="job-list.html">Constructions</a></h5>
-              <p>If the job requirement</p>
-              <a href="job-list.html" class="read-more"
-                >View Job<i class="fa fa-angle-right" aria-hidden="true"></i
-              ></a>
-            </div>
-            <!-- /.text -->
+            <!-- /.single-service -->
           </div>
-          <!-- /.single-service -->
-        </div>
-        <!-- /.col- -->
-        <div class="col-xl-4 col-lg-6 col-12">
-          <div class="single-service">
-            <div class="img-box">
-              <img src="/website/images/home/4.jpg" alt="" />
-            </div>
-            <div class="text">
-              <h5><a href="job-list.html">Security Company</a></h5>
-              <p>If the job requirement</p>
-              <a href="job-list.html" class="read-more"
-                >View Job<i class="fa fa-angle-right" aria-hidden="true"></i
-              ></a>
-            </div>
-            <!-- /.text -->
-          </div>
-          <!-- /.single-service -->
-        </div>
-        <!-- /.col- -->
-        <div class="col-xl-4 col-lg-6 col-12">
-          <div class="single-service">
-            <div class="img-box">
-              <img src="/website/images/home/5.jpg" alt="" />
-            </div>
-            <div class="text">
-              <h5><a href="job-list.html">Supermarket</a></h5>
-              <p>If the job requirement</p>
-              <a href="job-list.html" class="read-more"
-                >View Job<i class="fa fa-angle-right" aria-hidden="true"></i
-              ></a>
-            </div>
-            <!-- /.text -->
-          </div>
-          <!-- /.single-service -->
-        </div>
-        <!-- /.col- -->
-        <div class="col-xl-4 col-lg-6 col-12">
-          <div class="single-service">
-            <div class="img-box">
-              <img src="/website/images/home/6.jpg" alt="" />
-            </div>
-            <div class="text">
-              <h5><a href="job-list.html">Oil & Gas</a></h5>
-              <p>If the job requirement</p>
-              <a href="job-list.html" class="read-more"
-                >View Job<i class="fa fa-angle-right" aria-hidden="true"></i
-              ></a>
-            </div>
-            <!-- /.text -->
-          </div>
-          <!-- /.single-service -->
-        </div>
-        <!-- /.col- -->
-        <div class="col-xl-4 col-lg-6 col-12">
-          <div class="single-service">
-            <div class="img-box">
-              <img src="/website/images/home/7.jpg" alt="" />
-            </div>
-            <div class="text">
-              <h5><a href="job-list.html">Distributors/Suppliers</a></h5>
-              <p>If the job requirement</p>
-              <a href="job-list.html" class="read-more"
-                >View Job<i class="fa fa-angle-right" aria-hidden="true"></i
-              ></a>
-            </div>
-            <!-- /.text -->
-          </div>
-          <!-- /.single-service -->
-        </div>
-        <!-- /.col- -->
-        <div class="col-xl-4 col-lg-6 col-12">
-          <div class="single-service">
-            <div class="img-box">
-              <img src="/website/images/home/8.jpg" alt="" />
-            </div>
-            <div class="text">
-              <h5><a href="job-list.html">Hotels/Resorts/Restaurant</a></h5>
-              <p>If the job requirement</p>
-              <a href="job-list.html" class="read-more"
-                >View Job<i class="fa fa-angle-right" aria-hidden="true"></i
-              ></a>
-            </div>
-            <!-- /.text -->
-          </div>
-          <!-- /.single-service -->
-        </div>
+        @endforeach
         <!-- /.col- -->
       </div>
       <!-- /.row -->
