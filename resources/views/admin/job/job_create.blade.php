@@ -45,7 +45,7 @@
         </div>
         <!-- form start -->
         
-        <form method="post" action="/admin/navigation-list/{{$category}}"  enctype="multipart/form-data">
+        <form method="post" action="/admin/jobstore/{{$category}}"  enctype="multipart/form-data">
             {{csrf_field()}}
             <div class="col-md-9" style="padding-top: 10px;">
                 <div class="form-group col-md-10">
@@ -61,9 +61,29 @@
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="caption">Caption <i class="reqr">*</i> (Page/Navigation Title)</label>
+                    <label for="caption">Caption <i class="reqr">*</i> (Job Title)</label>
                     <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="caption" name="caption" placeholder="Caption" value="{{old('caption')}}" required="required">
-                </div>             
+                </div>    
+                
+                  <div class="form-group col-md-6">
+                    <label for="caption">Company Name <i class="reqr">*</i>(company name)</label>
+                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="caption" name="company_name" placeholder="company name" value="{{old('caption')}}" required="required">
+                </div>   
+
+                  <div class="form-group col-md-6">
+                    <label for="caption">Country<i class="reqr">*</i> (country)</label>
+                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="text" id="caption" name="country" placeholder="country" value="{{old('caption')}}" required="required">
+                </div>   
+
+                  <div class="form-group col-md-6">
+                    <label for="caption">salary <i class="reqr">*</i> (salary)</label>
+                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="number" id="caption" name="salary" placeholder="salary" value="{{old('caption')}}" required="required">
+                </div>   
+
+                  <div class="form-group col-md-6">
+                    <label for="caption">Contract Time <i class="reqr">*</i> (Contract Time)</label>
+                    <input class="form-control {{ $errors->has('caption') ? 'has-error' : '' }}" type="number" id="caption" name="contract_time" placeholder="2 years" value="{{old('caption')}}" required="required">
+                </div>   
 
                 <div id="url_link_div" class="form-group col-md-10" style="display: none;">
                     <label for="link_url">URL Link <i class="reqr">*</i></label>
@@ -106,9 +126,7 @@
             <div class="form-group col-md-12">
                 <label for="page_type">Page Type <i class="reqr">*</i></label>   
                 <select class="form-control" name="page_type" id="page_type" required="" onchange="pageType()"> 
-                 @foreach($page_types as $type)
-                    <option value="{{$type->page_type_title}}">{{$type->page_type_title}}</option>
-                 @endforeach                                  
+                    <option value="Job">Job</option>                              
                 </select>
             </div>            
             

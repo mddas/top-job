@@ -81,6 +81,8 @@ Route::prefix('admin')->group(function(){
 //................................customized my MD for Job.............
     Route::get('/job/{category}/{id}/create','JobController@AddJob')->name("AddJob");
     Route::get('/job/{category}/create','JobController@AddJob')->name("AddJob");
+    Route::post('/jobstore/{category}', 'JobController@store')->name("AddJob1");
+    Route::post('/jobstore/{category}/{id}', 'JobController@store')->name("AddJob2");
 
 });
 

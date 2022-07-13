@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Navigation;
+use App\Job;
 use App\Models\NavigationItems;
 use File;
 
@@ -33,6 +34,7 @@ class NavigationController extends Controller
             $category .= '/'.$request_segment;
         }
         $category_id = intval($category_id);
+        //return $category_id;
         $next_position = $current_max_position + 1;
         $categories = Navigation::where('page_type','group')->where('nav_category', $category)->get();
         return view('admin.navigation.navigation_create',compact('category','next_position','categories','main_home','category_id'));
@@ -217,6 +219,12 @@ class NavigationController extends Controller
 
 
         $navigation->delete($id);
+        //modify by Md delete job post
+            $job = Job::all()->where('navigation_id',$id)->first();
+            if($job){
+                $job->delete();
+            }            
+
         return redirect('admin/navigation-list/'.$nav_category.$parent_id)->with('success','Data Deleted Succssfully!!');
     }
     

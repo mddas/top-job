@@ -128,7 +128,8 @@
                 
             <div class="form-group col-md-12">
                 <label for="page_type">Page Type <i class="reqr">*</i></label>   
-                <select class="form-control" name="page_type" id="page_type" required="" onchange="pageType()"> 
+                <select class="form-control" name="page_type" id="page_type" required="" onchange="pageType(this.value)"> 
+                <option selected>----None----</option>
                  @foreach($page_types as $type)
                     <option value="{{$type->page_type_title}}">{{$type->page_type_title}}</option>
                  @endforeach                                  
@@ -470,12 +471,14 @@
     
     <!-----if page_type is Job--------->
     <script>
-        function pageType(){
-            @if($category_id==0)
-                window.location.href = "/admin/job/{{$main_home}}/create";
-            @elseif($category_id!=0)
-                window.location.href = "/admin/job/{{$main_home}}/{{$category_id}}/create";
-            @endif
+        function pageType(val){
+           if(val=="Job"){
+                @if($category_id==0)
+                    window.location.href = "/admin/job/{{$main_home}}/create";
+                @elseif($category_id!=0)
+                    window.location.href = "/admin/job/{{$main_home}}/{{$category_id}}/create";
+                @endif
+           }
         }
         if($("#page_type").val()=="Job"){
           @if($category_id==0)
