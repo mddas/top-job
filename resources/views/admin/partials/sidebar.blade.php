@@ -27,6 +27,11 @@
             <li class="{{Request::is('admin/global-setting')?'active':''}}  treeview"><a
                         href="{{url('/admin/global-setting')}}"><i class="fa fa-cog"></i> <span>Global Setup</span></a>
             </li>
+            <!--------customized by MD------------>
+             <li class="{{Request::is('admin/job')?'active':''}}  treeview"><a
+                        href="{{url('/admin/job-list')}}"><i class="fa fa-cog"></i> <span>JOBS</span></a>
+            </li>
+            <!----------end------------>
         </ul>
     </section>
     <!-- /.sidebar -->

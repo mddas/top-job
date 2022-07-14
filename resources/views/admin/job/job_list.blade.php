@@ -11,7 +11,7 @@
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title" style="font-weight: bold;margin-bottom: 10px;">
-                            {{$nav_category}} Category Navigation List
+                            Job List
                         </h3>
                         <div class="clearfix"></div>
 
@@ -40,10 +40,14 @@
                             <button type="button" class="btn btn-default backlink"><i class="fa fa-backward"
                                                                                       aria-hidden="true"> </i> Back
                             </button>
-
+                            <select class="form-select">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
                             <button type="button" class="btn btn-success add"><i class="fa fa-plus"
-                                                                                 aria-hidden="true"></i>Create New
-                                Navigation
+                                                                                 aria-hidden="true"></i>Create new job
                             </button>
 
                         </div>

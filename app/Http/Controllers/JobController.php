@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
+    public function jobList($nav_category = null){
+        $navigations  = Navigation::where('page_type','Job')->orderBy('position','ASC')->get();
+        //return $navigations;
+        return view('admin.job.job_list', compact('navigations','nav_category'));
+    }
     public function AddJob($category){
        $request_segment = \Request::segment(4);
         if(intval($request_segment) == 0){

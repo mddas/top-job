@@ -84,6 +84,8 @@ Route::prefix('admin')->group(function(){
     Route::post('/jobstore/{category}', 'JobController@store')->name("AddJob1");
     Route::post('/jobstore/{category}/{id}', 'JobController@store')->name("AddJob2");
 
+    Route::get('/job-list', 'JobController@jobList')->name("joblist");
+
 });
 
 Route::get('/{slug}',[HomeController::class,'category'])->name('category');
