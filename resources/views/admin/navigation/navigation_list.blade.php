@@ -72,7 +72,7 @@
                                     <tr>
                                         <td>{{$index+1}}</td>
                                         <td>{{$navigation->id}}</td>
-                                        <td>{{$navigation->nav_name}}</td>
+                                        <td>{{$navigation->caption}}</td>
                                         @if($nav_category!='SNS')
                                             <td>{{$navigation->caption_nepali}}</td>
                                             <td>{{$navigation->page_type}}

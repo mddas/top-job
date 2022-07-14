@@ -9,8 +9,9 @@ class JobController extends Controller
 {
     public function jobList($nav_category = null){
         $navigations  = Navigation::where('page_type','Job')->orderBy('position','ASC')->get();
+        $categories = Navigation::where('page_type','Group')->where('parent_page_id',0)->get();
         //return $navigations;
-        return view('admin.job.job_list', compact('navigations','nav_category'));
+        return view('admin.job.job_list', compact('navigations','nav_category','categories'));
     }
     public function AddJob($category){
        $request_segment = \Request::segment(4);

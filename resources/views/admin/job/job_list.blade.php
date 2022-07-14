@@ -40,11 +40,11 @@
                             <button type="button" class="btn btn-default backlink"><i class="fa fa-backward"
                                                                                       aria-hidden="true"> </i> Back
                             </button>
-                            <select class="form-select">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select name="category_id" class="form-select" id="category_id">
+                                <option selected>Select Category</option>
+                                @foreach($categories as $cat)
+                                    <option value="{{$cat->id}}">{{$cat->caption}}</option>
+                                @endforeach
                             </select>
                             <button type="button" class="btn btn-success add"><i class="fa fa-plus"
                                                                                  aria-hidden="true"></i>Create new job
@@ -158,8 +158,10 @@
 
     <script>
         $('.add').click(function () {
+            //category_id = $('#category_id').value();
+            alert("category_id")
             var url = '<?=url()->full();?>' + '/create';
-            window.location = url;
+            //window.location = url;
         });
     </script>
 
