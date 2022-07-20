@@ -3,8 +3,12 @@
 @section("content")
 
 	@include("website.navbar")
-	@include("website.main_banner")
-	@include("website.about_company")
+	@if(isset($sliders))
+		@include("website.main_banner")
+	@endif
+	@if(isset($about))
+		@include("website.about_company")
+	@endif
 	@include("website.home_job_category")
 		  <!---
 			============================================== 

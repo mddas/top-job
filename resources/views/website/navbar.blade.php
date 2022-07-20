@@ -30,19 +30,16 @@
                                        <!-------menu------>
                                        <li class="active"><a href="/">HOME</a></li>
                                        @foreach($menus as $menu)
-									    <li class="active"><a href="#">{{$menu->caption}}</a>
+									   		@php $submenus = $menu->childs; @endphp
+									    <li class="active"><a href="{{route('category',$menu->nav_name)}}">{{$menu->caption}}</a>
                                             <ul class="dropdown">
-                                                @foreach($menu->childs as $men)
-									    		    <li><a href="#">{{$men->caption}}</a></li>
+                                                @foreach($submenus as $sub)
+									    		    <li><a href="{{route('subcategory',[$menu->nav_name,$sub->nav_name])}}">{{$sub->caption}}</a></li>
                                                 @endforeach
 									        </ul>
                                         </li>
                                         @endforeach
-                                        <li><a href="#">About</a>
-									    	<ul class="dropdown">
-									    		<li><a href="#">About Us</a></li>
-									       </ul>
-									    </li>
+                                      
                                        <!-------menu closed--->
 								   </ul>
 								</nav> <!-- /#mega-menu-holder -->

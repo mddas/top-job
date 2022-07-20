@@ -17,6 +17,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 Route::prefix('admin')->group(function(){
+    
     Route::get('/','Auth\AdminLoginController@index');
     Route::post('/login','Auth\AdminLoginController@login')->name('login.submit');
     Route::get('/change_profile','AdminController@change_profile')->name('admin.change_profile');
@@ -83,13 +84,21 @@ Route::prefix('admin')->group(function(){
     Route::get('/job/{category}/create','JobController@AddJob')->name("AddJob");
     Route::post('/jobstore/{category}', 'JobController@store')->name("AddJob1");
     Route::post('/jobstore/{category}/{id}', 'JobController@store')->name("AddJob2");
-
+    Route::get('/edit/{category}/{id}', 'JobController@edit')->name("jobedit");
+    Route::post('/jobupdate/{category}/{id}','JobController@JobUpdate');
+    Route::get('/job/delete-banner-image/{category}/{id}/deleteimage3','JobController@deleteBannerImage')->name('deleteBannerImage');
     Route::get('/job-list', 'JobController@jobList')->name("joblist");
 
 });
+Route::get('/jobdetail/{jobslug}',[HomeController::class,'singlePage'])->name('single_job');
 
+Route::get('/jobapply/{jobslug}',[HomeController::class,'jobApply'])->name('jobapply');
+
+Route::get('/contact',[HomeController::class,'Contact'])->name('contact');
 Route::get('/{slug}',[HomeController::class,'category'])->name('category');
-Route::get('/page/{slug}',[HomeController::class,'singlePage'])->name('singlepage');
+Route::get('/{category}/{subcategory}',[HomeController::class,'subcategory'])->name('subcategory');
+
+//Route::get('/page/{slug}',[HomeController::class,'singlePage'])->name('singlepage');
 // Route::any('{alias}', [
 //     'as' => 'pages',
 //     'uses' => 'HomeController@inner_pages'

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use App\Job;
 use Illuminate\Database\Eloquent\Model;
 
 class Navigation extends Model
@@ -45,15 +45,21 @@ class Navigation extends Model
 
     public function childs()
     {
-        return $this->hasMany('App\Models\Navigation','parent_page_id','id')->where('page_type','!=','Job');
+        return $this->hasMany('App\Models\Navigation','parent_page_id','id')->where('page_type','!=','Job')->where('page_type','!=','Photo Gallery')->where('page_type','!=','Notice');
     }
 
     public function parents()
     {
-        return $this->belongsTo('App\Models\Navigation','parent_page_id','id') ;
+        return $this->belongsTo('App\Models\Navigation','parent_page_id','id');
     }
+    
     public function getRelatedNews(){
 		$news =  $this->hasMany(Navigation::class,'parent_page_id','id');//Navigation::all()->where('parent_page_id')->latest()->get();
         return $news->orderBy('created_at', 'desc');
 	}
+
+    public function getJob(){
+        return $this->belongsTo(Job::class,'id','navigation_id');//job class->navigation id to related with->job foreign id i.e navigation id.
+    }
+ 
 }
