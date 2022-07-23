@@ -1,3 +1,6 @@
+@php
+    $global_setting = app\Models\GlobalSetting::all()->first();
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -13,14 +16,14 @@
 		<meta name="msapplication-navbutton-color" content="#061948">
 		<!-- iOS Safari -->
 		<meta name="apple-mobile-web-app-status-bar-style" content="#061948">
-		<title>Top Job Pvt Ltd</title>
+		<title>{{$global_setting->page_title ?? 'Raki International | WelCome and Namaste'}}</title>
 		<!-- Favicon -->
-		<link rel="icon" type="image/png" sizes="56x56" href="/website/images/fav-icon/icon.png">
+		<link rel="icon" type="image/png" sizes="56x56" href="{{$global_setting->favicon}}">
 		<!-- Main style sheet -->
 		<link rel="stylesheet" type="text/css" href="/website/css/style.css">
 		<!-- responsive style sheet -->
 		<link rel="stylesheet" type="text/css" href="/website/css/responsive.css">
-
+		 <link rel="stylesheet" href='https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/css/lightgallery.css'>
 	</head>
 
 	<body>
@@ -130,6 +133,42 @@
 
 		<!-- Theme js -->
 		<script src="/website/js/theme.js"></script>
+		            	<!-- gllery js -->
+	    <script src="/website/js/gallery/picturefill.min.js"></script>
+	    <script src="/website/js/gallery/lightgallery.js"></script>
+	    <script src="/website/js/gallery/lg-pager.js"></script>
+	    <script src="/website/js/gallery/lg-autoplay.js"></script>
+	    <script src="/website/js/gallery/lg-fullscreen.js"></script>
+	    <script src="/website/js/gallery/lg-zoom.js"></script>
+	    <script src="/website/js/gallery/lg-hash.js"></script>
+	    <script src="/website/js/gallery/lg-share.js"></script>
+        <script>
+        lightGallery(document.getElementById('lightgallery'));
+
+        $(function() {
+        var selectedClass = "";
+        $(".filter").click(function(){
+        selectedClass = $(this).attr("data-rel");
+        $("#lightgallery").fadeTo(100, 0.1);
+        $("#lightgallery div").not("."+selectedClass).fadeOut().removeClass('animation');
+        setTimeout(function() {
+        $("."+selectedClass).fadeIn().addClass('animation');
+        $("#lightgallery").fadeTo(300, 1);
+        }, 300);
+        });
+        });
+    	</script>
+	    <!--End gllery js -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            @if(Session::has('contact'))
+            <script>
+                Swal.fire(
+                    'Thanks!',
+                     "Form submitted sucessfully!!!",
+                    'success'
+                    )
+            </script>
+        @endif
 	</div> <!-- /.main-page-wrapper -->
  </body>
 </html>

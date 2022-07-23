@@ -1,6 +1,6 @@
 @extends('layouts.master')
-    @section("contents")
-        <!-- @include("website.main_slider") -->
+    @section("content")
+        @include("website.navbar");
 		  @php 
 			if(app\Models\Navigation::query()->where('nav_category','Home')->where('nav_name', 'LIKE', "%message%")->where('page_type','Group')->latest()->first()!=null){
 				$message_id = app\Models\Navigation::query()->where('nav_category','Home')->where('nav_name', 'LIKE', "%message%")->where('page_type','Group')->latest()->first()->id;
@@ -52,6 +52,6 @@
 				</div> <!-- /.container -->
 			</div> <!-- /.about-compnay-two -->
 			<!------common page end----->
-        @include("website.partner")
+        @include("website.company_partner")
     @endsection
     
