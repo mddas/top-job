@@ -4,7 +4,7 @@
 
 	@include("website.navbar")
 	@if(isset($sliders))
-		@include("website.main_banner")
+	    @include("website.main_slider")
 	@endif
 	@if(isset($about))
 		@include("website.about_company")
@@ -16,7 +16,7 @@
 			<div class="feature-banner">
 				<div class="opacity">
 					<div class="container">
-						<h2>we practice Ethical Recruitment and comply to various Business Code of Conducts.</h2>
+						<h2>practice Ethical Recruitment and comply to various Business Code of Conducts.</h2>
 					</div> <!-- /.container -->
 				</div> <!-- /.opacity -->
 			</div> <!-- /.Slogan banner -->
