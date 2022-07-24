@@ -1,5 +1,6 @@
 @php
     $global_setting = app\Models\GlobalSetting::all()->first();
+	$normal_gallary_notice = app\Models\Navigation::all()->where('page_type','normal')->where('nav_category','Main')->orWhere('page_type','Photo Gallery')->orWhere('page_type','Notice');
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -56,10 +57,10 @@
 							<div class="col-lg-2 col-sm-6 col-12 footer-list">
 								<h6 class="title">EXPLORE</h6>
 								<ul>
-									<li><a href="inner.html">About us</a></li>
-									<li><a href="why-us.html">Why Us?</a></li>
-									<li><a href="job-category.html">Job Category</a></li>
-									<li><a href="gallery.html">Gallery</a></li>
+									@foreach($normal_gallary_notice as $dat)
+										<li><a href="{{route('category',$dat->nav_name)}}">{{$dat->caption}}</a></li>
+									@endforeach
+									
 								</ul>
 							</div> <!-- /.footer-list -->
 							
@@ -68,15 +69,15 @@
 								<ul>
 									<li>
 										<i class="flaticon-direction-signs"></i>
-										Basundhara-03 Kathmandu Nepal
+										{{$global_setting->address_new}}
 									</li>
 									<li>
 										<i class="flaticon-multimedia-1"></i>
-										<a href="mailto:roshan@topjobsnepal.com">roshan@topjobsnepal.com</a>
+										<a href="mailto:{{$global_setting->site_email}}">{{$global_setting->site_email}}</a>
 									</li>
 									<li>
 										<i class="fa fa-phone" aria-hidden="true"></i>
-										<a href="tel:015903103">01-5903103 </a> / <a href="tel:015903102">5903102</a>
+										<a href="tel:{{$global_setting->phone}}">{{$global_setting->phone}}</a> / <a href="tel:{{$global_setting->phone_ne}}">{{$global_setting->phone_ne}}</a>
 									</li>
 								</ul>
 							</div> <!-- /.contact-widget -->
