@@ -1,6 +1,6 @@
 @php
     $global_setting = app\Models\GlobalSetting::all()->first();
-	$normal_gallary_notice = app\Models\Navigation::all()->where('page_type','normal')->where('nav_category','Main')->orWhere('page_type','Photo Gallery')->orWhere('page_type','Notice');
+	$normal_gallary_notice = app\Models\Navigation::query()->where('nav_category','Main')->where('page_type','!=','Job')->where('page_type','!=','Photo Gallery')->where('page_type','!=','Notice')->where('parent_page_id',0)->where('page_status','1')->orderBy('position','ASC')->get();
 @endphp
 <!DOCTYPE html>
 <html lang="en">

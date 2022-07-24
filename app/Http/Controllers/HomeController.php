@@ -129,8 +129,10 @@ class HomeController extends Controller
         if(Navigation::all()->where('nav_name',$menu)->count()>0){
                     //$normal_notice_page = Navigation::all()->where('nav_name',$slug)->first();
             $category_id = Navigation::all()->where('nav_name',$menu)->first()->id;
+            
             if(Navigation::all()->where('parent_page_id',$category_id)->count()>0){
                    $category_type = Navigation::all()->where('parent_page_id',$category_id)->first()->page_type;
+                   
                 }
             else{
                    $category_type = Navigation::all()->where('nav_name',$menu)->where('page_type','!=','Notice')->first()->page_type;
