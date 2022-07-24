@@ -12,23 +12,27 @@
 									<div class="row">
 										<div class="col-sm-3">
 											<div class="img-box">
-												<img src="/website/images/home/3.jpg" alt="">
+												<a href="{{route('single_job',$job->nav_name)}}"><img src="{{$job->banner_image}}" alt=""></a>
 											</div>
 										</div>
 										<div class="col-sm-5">
-											<div class="text">
-												<h6>Factory Worker (Manufacturing Sec.)</h6>
-												<span class="job_company">Company: POLYPLAS SDN. BHD.</span>
-												<span><i class="fa fa-map-marker"></i> Malaysia</span>
-												<p>Job Category Distributors/Suppliers</p>
-											</div> <!-- /.text -->
+											<a href="{{route('single_job',$job->nav_name)}}">
+											  <div class="text">
+												<h6>{{$job->caption}}</h6>
+												<span class="job_company">{{$job->getJob->company_name}}</span>
+												<span><i class="fa fa-map-marker"></i>{{$job->getJob->country}}</span>
+												<!-- <p>job category</p> -->
+											  </div> <!-- /.text -->
+											</a>
 										</div>
 										<div class="col-sm-4">
-											<div class="text">
-												<span class="job_company">Salary : MYR 1500 Monthly</span>
-												<span>Contract : 2 Year(s)</span>
-												<a href="apply-form.html" class="apply-button" target="_blank">Apply Now</a>
-											</div> <!-- /.text -->
+											<a href="{{route('single_job',$job->nav_name)}}">
+											  <div class="text">
+												<span class="job_company">Salary : NRP {{$job->getJob->salary}} Monthly</span>
+												<span>Contract : {{$job->getJob->contract_time}} Year(s)</span>
+												<a href="/jobapply/{{$job->nav_name}}" class="apply-button" target="_blank">Apply Now</a>
+											  </div> <!-- /.text -->
+											</a>
 										</div>
 									</div>
 								</div>
