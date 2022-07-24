@@ -11,8 +11,8 @@
 								</li>
 								<li class="address">
 									<i class="icon flaticon-multimedia"></i>
-									<h6><a href="tel:015224502">{{$global_setting->phone}}</a>	/	<a href="tel:015224503">{{$global_setting->phone_ne}}</a></h6>
-									<p><a href="mailto:info@rakiint.com.np">{{$global_setting->site_email}}</a></p>
+									<h6><a href="tel:{{$global_setting->phone}">{{$global_setting->phone}}</a>	/	<a href="tel:015224503">{{$global_setting->phone_ne}}</a></h6>
+									<p><a href="mailto:{{$global_setting->site_email}}">{{$global_setting->site_email}}</a></p>
 								</li>
 								<li class="quotes"><a href="/contact" target="_blank">Apply Now</a></li>
 							</ul>
