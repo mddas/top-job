@@ -1,20 +1,20 @@
 	<header class="header-one">
-				<div class="top-header">
+	<div class="top-header">
 					<div class="container clearfix">
-						<div class="logo float-left"><a href="index.html"><img src="{{$global_setting->banner_image}}" alt=""></a></div>
+						<div class="logo float-left"><a href="/"><img src="/uploads/icons/{{$global_setting->site_logo}}" alt=""></a></div>
 						<div class="address-wrapper float-right">
 							<ul>
 								<li class="address">
 									<i class="icon flaticon-placeholder"></i>
-									<h6>Basundhara-03</h6>
-									<p>Kathmandu Nepal</p>
+									  <h6>{{$global_setting->website_full_address}}</h6>
+                                      <p>Kathmandu Nepal</p>
 								</li>
 								<li class="address">
 									<i class="icon flaticon-multimedia"></i>
-									<h6><a href="tel:{{$global_setting->phone}}">{{$global_setting->phone}}</a>	/	<a href="tel:{{$global_setting->phone_ne}}">{{$global_setting->phone_ne}}</a></h6>
-									<p><a href="mailto:{{$global_setting->site_email}}">{{$global_setting->site_email}}</a></p>
+									<h6><a href="tel:015224502">{{$global_setting->phone}}</a>	/	<a href="tel:015224503">{{$global_setting->phone_ne}}</a></h6>
+									<p><a href="mailto:info@rakiint.com.np">{{$global_setting->site_email}}</a></p>
 								</li>
-								<li class="quotes"><a href="#" target="_blank">Apply Now</a></li>
+								<li class="quotes"><a href="/contact" target="_blank">Apply Now</a></li>
 							</ul>
 						</div> <!-- /.address-wrapper -->
 					</div> <!-- /.container -->
